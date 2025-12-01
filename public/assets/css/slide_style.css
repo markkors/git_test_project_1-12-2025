@@ -1,0 +1,102 @@
+ html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Voorkomt scrollbalken op de body */
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        #presentation-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            /* Aangepast naar 95% van de viewport breedte en 85% van de hoogte */
+            width: 95vw;
+            height: 85vh; 
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            padding: 40px 60px;
+            display: none; 
+            flex-grow: 1;
+            overflow-y: auto; /* Zorgt voor scrollen binnen de slide als de content te lang is */
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        h1 { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #28a745; margin-top: 25px; }
+
+        /* Knoppen/Controls */
+        #controls {
+            padding: 15px 60px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            background-color: #e9ecef;
+            width: 95vw; /* Zelfde breedte als de container */
+            border-radius: 0 0 12px 12px; /* Afronding alleen onderaan */
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* ======================================= */
+        /* CSS voor Syntax Highlighting (eenvoudig)*/
+        /* ======================================= */
+
+        pre {
+            background-color: #272822; /* Monokai-achtige achtergrond */
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #f8f8f2;
+        }
+
+        /* Syntax Kleuren */
+        .keyword { color: #f92672; } 
+        .string { color: #e6db74; } 
+        .comment { color: #75715e; } 
+        .number { color: #ae81ff; } 
+        .method { color: #a6e22e; } 
+        .variable { color: #66d9ef; } 
+        .operator { color: #f8f8f2; } 
+        /* Einde CSS */

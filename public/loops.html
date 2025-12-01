@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5 - JavaScript Loops Presentatie</title>
+    <link rel="stylesheet" href="assets/css/slide_style.css">
+</head>
+<body>
+
+    <div id="presentation-container">
+        
+        <div class="slide active" id="slide-1">
+            <h1>H5 - Lussen (Loops) in JavaScript 🔄</h1>
+            <p>Een **Loop** (lus) is een controlestructuur die een stuk code **meerdere keren** uitvoert, totdat een bepaalde voorwaarde is voldaan.</p>
+
+            <h2>Waarom zijn Loops essentieel?</h2>
+            <p>Loops voorkomen dat je code steeds opnieuw moet typen (redundantie). Dit maakt je code:</p>
+            <ul>
+                <li>**Efficiënt:** Minder regels code.</li>
+                <li>**Schalerbaar:** Werkt gemakkelijk voor 10, 100 of 1000 items.</li>
+            </ul>
+
+            <h3>Voorbeeld: 25 studenten welkom heten</h3>
+            <p>Zonder Loop vs. Met Loop:</p>
+            <pre><code><span class="comment">// Zonder loop (25 regels nodig):</span>
+<span class="method">console.log</span>(<span class="string">"Welkom student 1"</span>);
+<span class="method">console.log</span>(<span class="string">"Welkom student 2"</span>);
+<span class="comment">// ... enzovoort</span>
+
+<span class="comment">// Met een loop (1 regel):</span>
+<span class="keyword">for</span> (<span class="keyword">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; <span class="variable">i</span> <span class="operator"><=</span> <span class="number">25</span>; <span class="variable">i</span><span class="operator">++</span>) {
+    <span class="method">console.log</span>(<span class="string">"Welkom student "</span> <span class="operator">+</span> <span class="variable">i</span>);
+}</code></pre>
+        </div>
+
+        <div class="slide" id="slide-2">
+            <h1>De Drie Soorten Loops</h1>
+            <p>In JavaScript zijn er drie primaire loop-varianten, elk met een eigen toepassing:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Wanneer gebruiken?</th>
+                        <th>Hoofdkenmerk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>For-loop</strong></td>
+                        <td>Je **weet** hoeveel keer iets moet gebeuren (bijv. 10 keer, door een array).</td>
+                        <td>Initialisatie, Voorwaarde en Update staan op één regel.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>While-loop</strong></td>
+                        <td>Je **weet niet** hoeveel keer, maar checkt de voorwaarde vooraf.</td>
+                        <td>Blijft draaien zolang de voorwaarde <code>true</code> is.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Do-while-loop</strong></td>
+                        <td>Je wilt dat de code **minimaal één keer** wordt uitgevoerd, dan pas checken.</td>
+                        <td>De check staat aan het einde van de lus.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>⚠️ Oneindige Loops (Pas Op!)</h2>
+            <p>Een loop die nooit stopt omdat de voorwaarde altijd <code>true</code> blijft. Dit kan je browser of programma laten crashen.</p>
+            <pre><code><span class="comment">// ❌ GEVAAR: Oneindige loop!</span>
+<span class="keyword">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;
+<span class="keyword">while</span> (<span class="variable">i</span> <span class="operator"><</span> <span class="number">10</span>) {
+    <span class="method">console.log</span>(<span class="variable">i</span>);
+    <span class="comment">// i++ vergeten! De variabele i blijft 0.</span>
+}</code></pre>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <h1>De For-loop: De Standaard Werkpaard</h1>
+            <p>De meest gebruikte lus, ideaal voor het itereren over een bekend aantal stappen.</p>
+
+            <h2>Basis Syntax</h2>
+            <pre><code><span class="keyword">for</span> (<span class="comment">/* 1. Initialisatie */</span>; <span class="comment">/* 2. Voorwaarde */</span>; <span class="comment">/* 3. Update */</span>) {
+    <span class="comment">// Code die herhaaldelijk wordt uitgevoerd</span>
+}</code></pre>
+            
+            <h3>Voorbeeld 1: Tellen van 1 tot 5</h3>
+            <pre><code><span class="comment">// 1. Start bij i=1; 2. Stop als i > 5; 3. i verhogen met 1 na elke keer.</span>
+<span class="keyword">for</span> (<span class="keyword">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; <span class="variable">i</span> <span class="operator"><=</span> <span class="number">5</span>; <span class="variable">i</span><span class="operator">++</span>) {
+    <span class="method">console.log</span>(<span class="variable">i</span>);
+}
+<span class="comment">// Output: 1, 2, 3, 4, 5</span></code></pre>
+
+            <h3>Voorbeeld 2: Loop door een Array</h3>
+            <pre><code><span class="keyword">const</span> <span class="variable">namen</span> <span class="operator">=</span> [<span class="string">"Sarah"</span>, <span class="string">"Mohamed"</span>, <span class="string">"Lisa"</span>];
+
+<span class="keyword">for</span> (<span class="keyword">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; <span class="variable">i</span> <span class="operator"><</span> <span class="variable">namen</span>.<span class="variable">length</span>; <span class="variable">i</span><span class="operator">++</span>) {
+    <span class="method">console.log</span>(<span class="string">"Hallo "</span> <span class="operator">+</span> <span class="variable">namen</span>[<span class="variable">i</span>] <span class="operator">+</span> <span class="string">"!"</span>);
+}
+<span class="comment">// Let op: Array-index begint bij 0, dus de voorwaarde is 'i < length'.</span></code></pre>
+        </div>
+
+        <div class="slide" id="slide-4">
+            <h1>De While-Loop: Onbekend Aantal Iteraties</h1>
+            <p>Gebruik deze lus als je **niet weet** hoe vaak de code moet worden uitgevoerd. De voorwaarde wordt **eerst gecheckt**.</p>
+
+            <h2>Basis Syntax</h2>
+            <pre><code><span class="keyword">while</span> (<span class="comment">/* Voorwaarde */</span>) {
+    <span class="comment">// Code die herhaaldelijk wordt uitgevoerd</span>
+    <span class="comment">// Vergeet hier niet de variabele te updaten!</span>
+}</code></pre>
+
+            <h3>Typisch Scenario: Gebruikersinvoer</h3>
+            <p>De loop gaat door totdat de gebruiker een specifiek commando geeft (bijvoorbeeld "stop").</p>
+            <pre><code><span class="keyword">let</span> <span class="variable">invoer</span> <span class="operator">=</span> <span class="string">''</span>;
+
+<span class="keyword">while</span> (<span class="variable">invoer</span> <span class="operator">!==</span> <span class="string">'stop'</span>) {
+    <span class="variable">invoer</span> <span class="operator">=</span> <span class="method">prompt</span>(<span class="string">'Typ iets (of "stop"): '</span>);
+    <span class="method">console.log</span>(<span class="string">'Je typte: '</span> <span class="operator">+</span> <span class="variable">invoer</span>);
+}
+
+<span class="method">console.log</span>(<span class="string">'Programma gestopt!'</span>);</code></pre>
+
+            <h3>Onthoud het verschil met For</h3>
+            <p>Bij een `while-loop` moet je de teller of de verandering van de variabele **zelf regelen** binnen de body van de lus om een oneindige loop te voorkomen.</p>
+        </div>
+        
+        <div class="slide" id="slide-5">
+            <h1>De Do-While-Loop: Minimaal Één Keer</h1>
+            <p>Deze loop garandeert dat de code **minimaal één keer** wordt uitgevoerd, omdat de voorwaarde **pas achteraf** wordt gecheckt.</p>
+
+            <h2>Basis Syntax</h2>
+            <pre><code><span class="keyword">do</span> {
+    <span class="comment">// Code wordt ALTIJD 1x uitgevoerd.</span>
+} <span class="keyword">while</span> (<span class="comment">/* Voorwaarde */</span>);</code></pre>
+
+            <h3>Verschil met While-loop</h3>
+            <p>Stel, de voorwaarde is direct onwaar:</p>
+            <pre><code><span class="keyword">let</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">10</span>;
+
+<span class="comment">// 1. While-loop: Checkt eerst. De code wordt 0 keer uitgevoerd.</span>
+<span class="keyword">while</span> (<span class="variable">x</span> <span class="operator"><</span> <span class="number">5</span>) {
+    <span class="method">console.log</span>(<span class="string">"Nooit geprint (While)"</span>);
+}
+
+<span class="comment">// 2. Do-while-loop: Voert uit, dan checkt. De code wordt 1 keer geprint.</span>
+<span class="keyword">do</span> {
+    <span class="method">console.log</span>(<span class="string">"Wordt 1x geprint (Do-While)"</span>);
+} <span class="keyword">while</span> (<span class="variable">x</span> <span class="operator"><</span> <span class="number">5</span>);</code></pre>
+
+            <h3>Typisch Scenario: Menu's of Validatie</h3>
+            <p>Ideaal voor situaties waarin je de gebruiker **eerst** iets wilt tonen of vragen voordat je controleert of er gestopt moet worden.</p>
+        </div>
+        
+        <div class="slide" id="slide-6">
+            <h1>Einde van de Presentatie 🎉</h1>
+            <p>Je hebt nu de drie essentiële loop-structuren in JavaScript leren kennen:</p>
+            <ul>
+                <li>✅ **For-loop:** Voor bekende aantallen.</li>
+                <li>✅ **While-loop:** Voor onbekende aantallen (check vooraf).</li>
+                <li>✅ **Do-while-loop:** Voor onbekende aantallen (minimaal 1x uitvoeren).</li>
+            </ul>
+            <p><strong>Belangrijkste Les:</strong> Voorkom oneindige loops door altijd te zorgen dat je voorwaarde uiteindelijk <code>false</code> wordt!</p>
+            <br>
+            <p><em>Gebaseerd op H5 - Loops van de Javascript Tutorial (ROC ICA 2024).</em></p>
+        </div>
+
+        </div>
+
+    <div id="controls">
+        <button id="prev-btn" disabled>← Vorige</button>
+        <div id="slide-indicator">Slide 1 van 6</div>
+        <button id="next-btn">Volgende →</button>
+    </div>
+
+    <script src="assets/js/slides.js"></script>
+</body>
+</html>
